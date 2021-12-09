@@ -2,9 +2,9 @@ version: 0.2
 phases:
   install:
     commands:
-      - sudo yum update -y
-      - sudo yum install java-1.8.0 -y
-      - sudo yum install maven -y 
+      - yum update -y
+      - yum install java-1.8.0 -y
+      - yum install maven -y 
   pre_build:
     commands:
       - echo In the prebuild phase
