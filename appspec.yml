@@ -13,6 +13,11 @@ hooks:
     - location: install_dependencies.sh
       timeout: 300
       runas: root
+      
+  AfterInstall:
+    - location: after_install.sh
+      timeout: 300
+      runas: root
 
   ApplicationStart:
     - location: start_server.sh
