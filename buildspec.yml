@@ -1,3 +1,4 @@
+version: 0.2
 phases:
   install:
     commands:
@@ -15,6 +16,6 @@ phases:
     commands:
       - echo Build completed 
       - mvn package
-  artifacts:
-    files:
-      - '**/*'
+artifacts:
+  files:
+    - '**/*'
