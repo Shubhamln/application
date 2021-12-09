@@ -1,0 +1,20 @@
+phases:
+  install:
+    commands:
+      - sudo yum update -y
+      - sudo yum install java-1.8.0 -y
+      - sudo yum install maven -y 
+  pre_build:
+    commands:
+      - echo In the prebuild phase
+  build:
+    commands:
+      - echo Build started 
+      - mvn install
+  post_build:
+    commands:
+      - echo Build completed 
+      - mvn package
+  artifacts:
+    files:
+      - '**/*'
