@@ -3,8 +3,11 @@ pipeline{
   stages{
     stage("Git checkout"){
 	  steps{
-	    echo "Checkout done"
+	    git branch: 'main', credentialsId: 'Github', url: 'https://github.com/Shubhamln/application.git'
 	  }
-	 }
+	}
+	stage(){
+	  sh "mvn clean package"
+	}
   }
- }
+}
