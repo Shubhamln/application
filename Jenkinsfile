@@ -1,8 +1,5 @@
 pipeline{
   agent any
-  environment{
-    PATH = "usr/share/bin:$PATH"
-  }
   stages{
     stage("Git checkout"){
 	  steps{
