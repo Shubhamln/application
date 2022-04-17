@@ -14,9 +14,9 @@ pipeline{
 	}
 	stage("Deploy"){
 	  steps{
-	    sshagent(['SSH']) {
+	    sshagent(['ROOT']) {
           sh """
-		    sudo scp -o StrictHostKeyChecking=no target/myapp.jar ec2-user@172.31.84.32:/opt/apache-tomcat-9.0.35//webapps/
+		    sudo scp -o StrictHostKeyChecking=no target/myapp.jar root@172.31.84.32:/opt/apache-tomcat-9.0.35//webapps/
 		    shh /usr/bin sudo tomcatdown
 		    shh /usr/bin sudo tomcatup
 		  """
