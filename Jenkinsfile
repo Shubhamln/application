@@ -16,13 +16,15 @@ pipeline{
 	  }
 	}
 	stage("Deploy"){
-	  sshagent(['SSH']) {
-        sh """
-		  scp ssh -o StrictHostKeyChecking=no target/myapp.war ec2-user@172.31.84.32:/opt/bin/tomcat/webapps/
-		  shh /usr/bin tomcatdown
-		  shh /usr/bin tomcatup
-		"""
-      }  
+	  steps{
+	    sshagent(['SSH']) {
+          sh """
+		    scp ssh -o StrictHostKeyChecking=no target/myapp.war ec2-user@172.31.84.32:/opt/bin/tomcat/webapps/
+		    shh /usr/bin tomcatdown
+		    shh /usr/bin tomcatup
+		  """
+        }
+      }	  
 	}
   }
 }
