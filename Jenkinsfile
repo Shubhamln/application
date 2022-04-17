@@ -5,9 +5,12 @@ pipeline{
 	  steps{
 	    git branch: 'main', credentialsId: 'Github', url: 'https://github.com/Shubhamln/application.git'
 	  }
-	}
-	stage(){
-	  sh "mvn clean package"
-	}
+    }
+    stage("Maven package"){
+      steps{
+        sh "mvn clean package"
+	   }
+    }
+
   }
 }
