@@ -16,9 +16,9 @@ pipeline{
 	  steps{
 	    sshagent(['SSH']) {
           sh """
-		    scp -o StrictHostKeyChecking=no target/myapp.jar ec2-user@172.31.84.32:/opt/apache-tomcat-9.0.35//webapps/
-		    shh /usr/bin tomcatdown
-		    shh /usr/bin tomcatup
+		    sudo scp -o StrictHostKeyChecking=no target/myapp.jar ec2-user@172.31.84.32:/opt/apache-tomcat-9.0.35//webapps/
+		    shh /usr/bin sudo tomcatdown
+		    shh /usr/bin sudo tomcatup
 		  """
         }
       }	  
